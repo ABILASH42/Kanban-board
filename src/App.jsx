@@ -83,7 +83,7 @@ const editData = useCallback((col, id, item) => {
       const destinationItems = Array.from(data[destinationCol]);
       destinationItems.splice(destination.index, 0, moveItem);
       setdata((prev) => ({
-        ...pre,
+        ...prev,
         [sourceCol]: sourceItems,
         [destinationCol]: destinationItems,
       }));
