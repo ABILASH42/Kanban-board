@@ -1,6 +1,6 @@
 import React, { useState ,memo } from "react";
 import Card from "./Card";
-import Form from "./form";
+import Form from "./Form";
 import { Droppable, Draggable } from "@hello-pangea/dnd";
 
 function Columns(props) {
