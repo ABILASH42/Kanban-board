@@ -43,7 +43,7 @@ function Card(props) {
 
   return (
     <div
-      className="bg-white rounded-xl  p-4 my-2 mx-4 shadow-md w-11/12 relative "
+      className="bg-white dark:bg-gray-800 rounded-xl  p-4 my-2 mx-4 shadow-md w-11/12 relative "
       onDoubleClick={() => setEditing(true)}
       ref={cardRef}
     >
@@ -54,7 +54,7 @@ function Card(props) {
           }}
           className="cursor-pointer"
         >
-          <img className="w-4" src="/img/delete.png" alt="del" />
+          <img className="w-4 dark:invert" src="/img/delete.png" alt="del" />
         </button>
       </div>
       {isEditing ? (
@@ -64,21 +64,21 @@ function Card(props) {
             type="text"
             onChange={inputchange}
             value={item.title}
-            className="outline-0 h-7  font-bold text-lg w-9/10"
+            className="dark:text-white outline-0 h-7  font-bold text-lg w-9/10"
           />
           <input
             onChange={inputchange}
             name="discription"
             type="text"
             placeholder="Discription"
-            className="outline-0 text-gray-600 w-9/10"
+            className="dark:text-white outline-0 text-gray-600 w-9/10"
             value={item.discription}
           />
         </>
       ) : (
         <>
-          <h1 className="font-bold text-lg break-words w-9/10">{item.title}</h1>
-          <p className="text-gray-600 break-words w-9/10">{item.discription}</p>
+          <h1 className="dark:text-white font-bold text-lg break-words w-9/10">{item.title}</h1>
+          <p className="dark:text-white text-gray-600 break-words w-9/10">{item.discription}</p>
         </>
       )}
     </div>

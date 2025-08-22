@@ -13,14 +13,14 @@ function Columns(props) {
   return (
     <section className="flex flex-col justify-start items-center gap-3 relative">
       <div className="flex justify-start items-start w-9/10 gap-3">
-        <h1 className="text-xl font-bold text-gray-500">{props.name}</h1>
-        <div className="bg-white rounded-2xl w-10 flex justify-center items-center">
-          <p className="font-bold">{props.data.length}</p>
+        <h1 className="text-xl font-bold dark:text-white text-gray-500">{props.name}</h1>
+        <div className="bg-white dark:bg-gray-600 rounded-2xl w-10 flex justify-center items-center">
+          <p className="font-bold dark:text-white">{props.data.length}</p>
         </div>
       </div>
       <button
         onClick={formClose}
-        className="w-9/10 h-11 text-blue-500 font-bold border-gray-300 border rounded-sm hover:bg-blue-500 hover:text-white shadow"
+        className="w-9/10 h-11 dark:text-white text-blue-500 font-bold  border-gray-300 border rounded-sm hover:bg-blue-500 hover:text-white shadow dark:hover:bg-white dark:hover:text-black"
       >
         + Add New Task
       </button>

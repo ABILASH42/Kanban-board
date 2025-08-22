@@ -43,7 +43,7 @@ function Form(props) {
     <div
       tabIndex={-1}
       ref={formRef}
-      className="bg-white flex flex-col justify-center items-start w-11/12 rounded-xl shadow-md  p-4 m-2"
+      className="bg-white dark:bg-gray-800 flex flex-col justify-center items-start w-11/12 rounded-xl shadow-md  p-4 m-2"
     >
       <input
         ref={titleRef}
@@ -51,7 +51,7 @@ function Form(props) {
         name="title"
         type="text"
         placeholder="Task..."
-        className="outline-0 h-7 w-full font-bold text-lg "
+        className="dark:text-white outline-0 h-7 w-full font-bold text-lg "
         value={item.title}
       />
       <textarea
@@ -59,7 +59,7 @@ function Form(props) {
         name="discription"
         type="text"
         placeholder="Discription"
-        className="outline-0 w-full text-gray-600  break-words"
+        className="dark:text-white outline-0 w-full text-gray-600  break-words"
         value={item.discription}
       />
     </div>

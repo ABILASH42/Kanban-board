@@ -175,12 +175,14 @@ import React from "react";
 import Columns from "./components/Columns";
 import { DragDropContext } from "@hello-pangea/dnd";
 import { useTasks } from "./hooks/useTasks";
+import ToggleDarkModeButton from "./components/ToggleDarkModeButton"
 
 function App() {
   const { data, addData, deleteData, editData, clearAll, onDragEnd } = useTasks();
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
+      <ToggleDarkModeButton/>
       <div className="md:grid md:grid-cols-4 p-10 gap-4">
         {["todo", "progress", "review", "done"].map((col) => (
           <Columns
