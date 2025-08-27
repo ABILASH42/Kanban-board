@@ -44,7 +44,7 @@
 
 
 import { useState, useEffect } from "react";
-import { Sun, Moon } from "lucide-react"; // icons
+import { Sun, SunMoon } from "lucide-react";
 
 export default function DarkModeToggle() {
   const [darkMode, setDarkMode] = useState(false);
@@ -68,18 +68,16 @@ export default function DarkModeToggle() {
   }, [darkMode]);
 
   return (
-    <div className="flex justify-end items-center gap-3 p-4 fixed right-1 top-1">
-      <button
-        onClick={() => setDarkMode(!darkMode)}
-        className="w-12 h-12 flex items-center justify-center rounded-full 
-                   bg-gray-200 dark:bg-gray-800 shadow-md transition-all duration-300"
-      >
-        {darkMode ? (
-          <Sun className="w-6 h-6 text-yellow-500 transition-transform duration-500 rotate-180" />
-        ) : (
-          <Moon className="w-6 h-6 text-gray-900 dark:text-gray-100 transition-transform duration-500 rotate-180" />
-        )}
-      </button>
-    </div>
+    <li 
+      className="flex items-center gap-2 p-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
+      onClick={() => setDarkMode(!darkMode)}
+    >
+      {darkMode ? (
+        <Sun className="w-5 h-5 text-yellow-500" />
+      ) : (
+        <SunMoon className="w-5 h-5 text-gray-900 dark:text-gray-100" />
+      )}
+      <span className="dark:text-white">{darkMode ? "Light Mode" : "Dark Mode"}</span>
+    </li>
   );
 }
