@@ -171,7 +171,7 @@
 
 
 
-import React from "react";
+import React,{useEffect} from "react";
 import Columns from "./Columns";
 import { DragDropContext } from "@hello-pangea/dnd";
 import { useTasks } from "../hooks/useTasks";
@@ -179,7 +179,12 @@ import UserInfo from "./UserInfo";
 
 function App() {
     const { data, addData, deleteData, editData, clearAll, onDragEnd } = useTasks();
-    
+    useEffect(() => {
+        const storedMode = sessionStorage.getItem("darkMode");
+        if (storedMode === "true") {
+          document.documentElement.classList.add("dark");
+        }
+      }, []);
   return (
     <DragDropContext onDragEnd={onDragEnd}>
         <UserInfo/>

@@ -3,6 +3,8 @@ import { useState, useEffect, useCallback } from "react";
 const API_BASE = "http://localhost:5000";
 
 export function useTasks() {
+  const userName = sessionStorage.getItem("userName");
+
   const [data, setData] = useState({
     todo: [],
     progress: [],
@@ -14,10 +16,10 @@ export function useTasks() {
   useEffect(() => {
     const fetchData = async () => {
       const [todo, progress, review, done] = await Promise.all([
-        fetch(`${API_BASE}/todo`).then((res) => res.json()),
-        fetch(`${API_BASE}/progress`).then((res) => res.json()),
-        fetch(`${API_BASE}/review`).then((res) => res.json()),
-        fetch(`${API_BASE}/done`).then((res) => res.json()),
+        fetch(`${API_BASE}/todo?userName=${userName}`).then((res) => res.json()),
+        fetch(`${API_BASE}/progress?userName=${userName}`).then((res) => res.json()),
+        fetch(`${API_BASE}/review?userName=${userName}`).then((res) => res.json()),
+        fetch(`${API_BASE}/done?userName=${userName}`).then((res) => res.json()),
       ]);
       setData({ todo, progress, review, done });
     };
@@ -25,7 +27,7 @@ export function useTasks() {
   }, []);
 
   const addData = useCallback(async (col, item) => {
-    const newItem = { ...item, id: crypto.randomUUID() };
+    const newItem = { ...item, id: crypto.randomUUID() ,userName:userName };
     setData((prev) => ({ ...prev, [col]: [...prev[col], newItem] }));
 
     await fetch(`${API_BASE}/${col}`, {

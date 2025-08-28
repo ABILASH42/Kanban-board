@@ -31,7 +31,8 @@ function LoginPage({setIsAuthenticated}) {
         const data = await res.json();
         console.log(data)
         setIsAuthenticated(true);
-        sessionStorage.setItem("userName",data.firstName+data.lastName)
+      sessionStorage.setItem("userName", data.firstName + data.lastName)
+      sessionStorage.setItem("img",data.image)
         navigate("/board");
     } catch (err) {
       alert(err.message);

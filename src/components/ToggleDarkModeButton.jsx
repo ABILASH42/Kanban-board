@@ -47,15 +47,9 @@ import { useState, useEffect } from "react";
 import { Sun, SunMoon } from "lucide-react";
 
 export default function DarkModeToggle() {
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    const storedMode = sessionStorage.getItem("darkMode");
-    if (storedMode === "true") {
-      setDarkMode(true);
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
+const getInitialMode = () => sessionStorage.getItem("darkMode") === "true";
+const [darkMode, setDarkMode] = useState(getInitialMode);
+  
 
   useEffect(() => {
     if (darkMode) {
